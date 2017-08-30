@@ -8,8 +8,12 @@ using System.IO;
 
 namespace SnakeGame
 {
-    class MenuBuilder
+    class MenuBuilder : IGameObj
     {
+
+        private MenuItem startItem, loadItem, exitItem;
+        private List<MenuItem> items = new List<MenuItem>();
+        private ConsoleGraphics cg;
 
         public MenuBuilder(ConsoleGraphics cg)
         {
@@ -27,11 +31,9 @@ namespace SnakeGame
             exitItem.Click += ExitItem_Click;
         }
 
-        private ConsoleGraphics cg;
-
         private void ExitItem_Click()
-        {      
-            isExit = true;
+        {
+            Environment.Exit(0);
         }
 
         private void LoadItem_Click()
@@ -44,7 +46,7 @@ namespace SnakeGame
             }
             if (lvl > 9 && lvl < 50)
             {
-                GameEngine ge = new GameEngine(cg, lvl);
+                Player ge = new Player(cg, lvl);
                 ge.Start();
             }
         }
@@ -52,35 +54,24 @@ namespace SnakeGame
         private void StartItem_Click()
         {
             cg.FillRectangle(0xFF000000, 0, 0, 200, 200);
-            GameEngine ge = new GameEngine(cg, 10);
-            ge.Start();
+            Player player = new Player(cg, 10);
+            player.Start();
         }
 
-        MenuItem startItem, loadItem, exitItem;
-        List<MenuItem> items = new List<MenuItem>();
-        private bool isExit = false;
-
-        public void MenuBegin()
+        public void Render(ConsoleGraphics cg)
         {
-            while (true)
+            foreach (MenuItem item in items)
             {
-                if (!isExit)
-                {
-                    foreach (MenuItem item in items)
-                    {
-                        item.Update();
-                    }
-                    foreach (MenuItem item in items)
-                    {
-                        item.Draw(cg);
-                    }
-                    cg.FlipPages();
-                }
-                else
-                    return;
+                item.Draw(cg);
             }
         }
 
-
+        public void Update(AbstractGAmeEngine age)
+        {
+            foreach (MenuItem item in items)
+            {
+                item.Update();
+            }
+        }
     }
 }

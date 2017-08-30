@@ -11,6 +11,12 @@ namespace SnakeGame
 
     class MenuItem
     {
+        private int x, y, w, h;
+        private uint textColor;
+        private string text;
+        public event EventDelegate Hover;
+        public event EventDelegate Click;
+
         public MenuItem(int x, int y, int w, int h, string text)
         {
             this.x = x;
@@ -19,11 +25,6 @@ namespace SnakeGame
             this.h = h;
             this.text = text;
         }
-        private int x, y, w, h;
-        private uint textColor;
-        private string text;
-        public event EventDelegate Hover;
-        public event EventDelegate Click;
 
         public void Draw(ConsoleGraphics cg)
         {

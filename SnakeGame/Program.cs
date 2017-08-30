@@ -16,8 +16,10 @@ namespace SnakeGame
 
             Console.CursorVisible = false;
             ConsoleGraphics cg = new ConsoleGraphics();
-            MenuBuilder mb = new MenuBuilder(cg);
-            mb.MenuBegin();
+            //MenuBuilder mb = new MenuBuilder(cg);
+            //mb.MenuBegin();
+            ConcreteGameEngine cge = new ConcreteGameEngine(cg);
+            cge.Start();
         }
     }
 }

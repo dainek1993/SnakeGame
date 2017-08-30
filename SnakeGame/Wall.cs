@@ -7,7 +7,7 @@ using NConsoleGraphics;
 
 namespace SnakeGame
 {
-    class Wall : IDravable
+    class Wall
     {
         public Wall(Random r, int x, int y, int seed)
         {
@@ -27,9 +27,9 @@ namespace SnakeGame
 
             }
         }
+
         public int X { get; private set; }
         public int Y { get; private set; }
-
         public List<WallElement> Elements { get; private set; }
 
         public void Draw(ConsoleGraphics cg)

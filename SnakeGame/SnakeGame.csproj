@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConsoleGraphics.cs">
-      <HintPath>..\..\..\..\..\Desktop\OOPGame-master\OOPGame\OOPGame\bin\Debug\ConsoleGraphics.cs.dll</HintPath>
+      <HintPath>.\ConsoleGraphics.cs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,11 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractGAmeEngine.cs" />
+    <Compile Include="ConcreteGameEngine.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Food.cs" />
-    <Compile Include="GameEngine.cs" />
+    <Compile Include="IGameObj.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="IDravable.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="MenuBuilder.cs" />
     <Compile Include="Program.cs" />

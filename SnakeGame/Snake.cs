@@ -11,6 +11,10 @@ namespace SnakeGame
     class Snake : IDravable
     {
         private const int _cellWidth = 30;
+        private Segment head;
+        private List<Segment> body = new List<Segment>();
+
+        public int Length => body.Count;
 
         public Snake(int x, int y)
         {
@@ -19,9 +23,7 @@ namespace SnakeGame
             body.Add(new Segment(x , y + _cellWidth) { Direct = head.Direct });
             body.Add(new Segment(x , y + _cellWidth * 2) { Direct = head.Direct });
         }
-        private Segment head;
-        private List<Segment> body = new List<Segment>();
-        public int Length => body.Count;
+
 
         public Segment this[int index]
         {
@@ -143,6 +145,11 @@ namespace SnakeGame
             {
                 body[i].ReverseDirection();
             }
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
         }
     }
 }

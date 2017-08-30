@@ -7,8 +7,9 @@ using NConsoleGraphics;
 
 namespace SnakeGame
 {
-    public interface IDravable
+    public interface IGameObj
     {
-        void Draw(ConsoleGraphics cg);
+        void Render(ConsoleGraphics cg);
+        void Update(AbstractGAmeEngine age);
     }
 }

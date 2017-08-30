@@ -22,5 +22,10 @@ namespace SnakeGame
             X = x;
             Y = y;
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
